@@ -23,7 +23,7 @@ const io = new  SocketServer(server,{
   })
 
 
-console.log(34, process.env.PORT)
+
 
 io.on('connection',(socket)=>{
 
@@ -50,7 +50,9 @@ connectDB()
 
   app.use("/",router)
 
-  server.listen(4000,console.log("server up in http://localhost:4000"))
+  
+
+  server.listen(process.env.PORT,console.log("server up in http://localhost:"+process.env.PORT))
 
 
 
