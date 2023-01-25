@@ -8,9 +8,14 @@ const addNewDataChat =(ChatId,newDataChat)=>{
   return ChatModels.findByIdAndUpdate(ChatId,{$push:{messages:newDataChat}})
 } 
 
+const deleteMessageChat = (id)=>{
+  return ChatModels.findByIdAndUpdate(id, { messages:[] })
+}
+
 const chatServices ={
 getChat,
-addNewDataChat 
+addNewDataChat,
+deleteMessageChat
 }
 
 export default chatServices

@@ -20,4 +20,6 @@ const router = Router()
 
   .post("/newDataChat",chatController.addNewDataChat)
 
+  .delete("/messageChat/:id",chatController.deleteMessageChat)
+
 export default router

@@ -15,10 +15,26 @@ const addNewDataChat = async (data)=>{
 
 }
 
+const deleteMessageChat =async (req,res)=>{
+  const {id} = req.params
+  console.log({id},20)
+ const chat  = await chatServices.deleteMessageChat(id)
+
+ if(chat === null) { return {messasges:"Ocurrio un error, y no se puedo eliminar",status:404, isError:true, error:null}} 
+ if(chat.messages.length ==0){ return res.send( {messasges:"se elimino correctamente",status:200, isError:false})
+}else{
+  return res.send({messasges:"Ocurrio un error, y no se puedo eliminar",status:404, isError:true})
+}
+
+
+
+}
+
 
 const chatController={
 getChat,
-addNewDataChat 
+addNewDataChat,
+deleteMessageChat
 }
 
 export  default chatController
